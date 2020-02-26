@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/info', function () {
+    phpinfo();
+});
+
+
+Route::prefix('/login/')->group(function(){
+    Route::get('reg','Index\LoginController@reg');
+    Route::post('doReg','Index\LoginController@doReg');
+});
