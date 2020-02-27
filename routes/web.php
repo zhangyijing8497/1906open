@@ -23,4 +23,6 @@ Route::get('/info', function () {
 Route::prefix('/login/')->group(function(){
     Route::get('reg','Index\LoginController@reg');
     Route::post('doReg','Index\LoginController@doReg');
+    Route::get('login','Index\LoginController@login');
+    Route::post('doLogin','Index\LoginController@doLogin');
 });
