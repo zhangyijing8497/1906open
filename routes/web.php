@@ -21,8 +21,14 @@ Route::get('/info', function () {
 
 
 Route::prefix('/login/')->group(function(){
+    // 注册视图
     Route::get('reg','Index\LoginController@reg');
+    // 执行注册
     Route::post('doReg','Index\LoginController@doReg');
+    // 登陆视图
     Route::get('login','Index\LoginController@login');
+    // 执行登陆
     Route::post('doLogin','Index\LoginController@doLogin');
+    // 个人中心
+    Route::get('personal','Index\LoginController@personal');
 });
