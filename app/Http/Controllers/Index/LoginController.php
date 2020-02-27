@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Index;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\UsersModel;
+use App\Model\UserModel;
+use App\Model\AppModel;
 
 class LoginController extends Controller
 {
@@ -24,6 +25,7 @@ class LoginController extends Controller
     {
         $pwd = $request->input('password');
         $pwd1 = $request->input('password1');
+        $username = $request->input('username');
         if($pwd != $pwd1){
             echo "<script>alert('密码与确认密码不一致'); window.history.back(-1); </script>";
 
@@ -31,7 +33,7 @@ class LoginController extends Controller
         $pwd = password_hash($pwd,PASSWORD_BCRYPT);
         $data = [
             'cname' => $request->input('cname'),
-            'username' => $request->input('username'),
+            'username' => $username,
             'password' => $pwd,
             'people' => $request->input('people'),
             'address' => $request->input('address'),
@@ -42,12 +44,25 @@ class LoginController extends Controller
             $data['logo']=$this->upload('logo');
         }
         // dd($data);
-        $res=UsersModel::insert($data);
-        if($res){
+        $uid = UserModel::insertGetId($data);
+  
+
+        if($uid>0){
             echo "<script>alert('注册成功',location='/login/login')</script>";
         }else{
             echo "<script>alert('注册失败',location='/login/reg')</script>";
         }
+
+        // 为用户生成APPID SECRET
+        $appid = UserModel::gernerateAPPId($username);
+        $secret = UserModel::gernerateSECRET();
+        // 写入app表中
+        $app_info = [
+            'uid'       => $uid,
+            'appid'     => $appid,
+            'secret'    => $secret,
+        ]; 
+        $app_id = AppModel::insertGetId($app_info);
     }
 
      /**
@@ -76,7 +91,7 @@ class LoginController extends Controller
     {
         $u = $request->input('u');
         $pwd = $request->input('password');
-        $res = UsersModel::where(['username'=>$u])->orWhere(['tel'=>$u])->orWhere(['email'=>$u])->first();
+        $res = UserModel::where(['username'=>$u])->orWhere(['tel'=>$u])->orWhere(['email'=>$u])->first();
         if($res == NULL){
             echo "<script>alert('用户不存在,请先注册用户!');location='/login/reg'</script>";
         }
