@@ -35,3 +35,7 @@ Route::prefix('/login/')->group(function(){
 
 Route::get('/getAccessToken','Index\LoginController@getAccessToken');
 
+Route::prefix('/api/')->middleware('access.token')->group(function(){
+    Route::get('test','Api\IndexController@test');
+    Route::get('userInfo','Api\IndexController@userInfo');
+});
