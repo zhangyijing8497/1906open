@@ -32,3 +32,6 @@ Route::prefix('/login/')->group(function(){
     // 个人中心
     Route::get('personal','Index\LoginController@personal');
 });
+
+Route::get('/getAccessToken','Index\LoginController@getAccessToken');
+
