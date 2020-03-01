@@ -15,7 +15,7 @@ class GithubController extends Controller
 
     public function callback()
     {
-        // echo '<pre>';print_r($_GET);echo '</pre>';
+        echo '<pre>';print_r($_GET);echo '</pre>';
 
         $client = new Client();
 
@@ -47,16 +47,16 @@ class GithubController extends Controller
         $access_token = $info['access_token'];
 
         // 使用access_token获取用户信息
-        $uri2 = 'https://api.github.com/user';
-        $response2 = $client->request("GET",$uri2,[
+        $uri = 'https://api.github.com/user';
+        $response = $client->request("GET",$uri,[
             'headers'     => [
                 'Accept'    => 'application/json',
                 'Authorization' => 'token'.$access_token
             ]
         ]);
-        $body2 = $response2->getBody();
-        $user_info = json_decode($body2,true);
-        echo '<pre>';print_r($user_info);echo '</pre>';
+        $body = $response->getBody();
+        $user_info = json_decode($body,true);
+        echo $user_info;
     }
     
 }
