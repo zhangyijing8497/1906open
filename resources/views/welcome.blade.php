@@ -88,6 +88,10 @@
                     <a href="{{url('login/reg')}}">注册</a>
                     <a href="{{url('login/login')}}">登陆</a>
                 </div>
+                <hr>
+                <div class="links">
+                    <a href="https://github.com/login/oauth/authorize?client_id=0509ce9400307d30fb22&redirect_uri=http://zyj.fanhanxiao.cn/github/callback">github</a>
+                </div>
             </div>
         </div>
     </body>
