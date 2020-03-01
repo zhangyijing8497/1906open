@@ -18,7 +18,7 @@ class GithubController extends Controller
 
         $client = new Client();
 
-        // echo '<pre>';print_r($_GET);echo '</pre>';
+        echo '<pre>';print_r($_GET);echo '</pre>';
 
         //  获取code
         $code = $_GET['code'];
@@ -40,7 +40,7 @@ class GithubController extends Controller
         ]);
         //access_token 在响应的数据中
         $body = $response->getBody();
-        // echo '<hr>';
+        echo $body;echo '<hr>';
 
         $info = json_decode($body,true);
         $access_token = $info['access_token'];
@@ -49,13 +49,12 @@ class GithubController extends Controller
         $uri = 'https://api.github.com/user';
         $response = $client->request("GET",$uri,[
             'headers'     => [
-                'Accept'    => 'application/json',
                 'Authorization' => 'token'.$access_token
             ]
         ]);
         $body = $response->getBody();
         $user_info = json_decode($body,true);
-        // echo $user_info;
+        echo $user_info;
     }
     
 }
