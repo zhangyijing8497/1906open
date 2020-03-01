@@ -16,6 +16,8 @@ class GithubController extends Controller
     public function callback()
     {
 
+        echo 111;die;
+
         $client = new Client();
 
         echo '<pre>';print_r($_GET);echo '</pre>';
