@@ -10,5 +10,11 @@ class GithubController extends Controller
     {
         return view('github.index');
     }
+
+
+    public function callback()
+    {
+        echo '<pre>';print_r($_GET);echo '</pre>';
+    }
     
 }
