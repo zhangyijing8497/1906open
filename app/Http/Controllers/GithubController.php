@@ -48,6 +48,7 @@ class GithubController extends Controller
 
         // 使用access_token获取用户信息
         $uri = 'https://api.github.com/user';
+        echo 111;
         $response = $client->request("GET",$uri,[
             'headers'     => [
                 'Accept'    => 'application/json',
@@ -56,6 +57,7 @@ class GithubController extends Controller
         ]);
         $body = $response->getBody();
         $user_info = json_decode($body,true);
+        echo 222;
         echo $user_info;
     }
     
