@@ -39,3 +39,6 @@ Route::prefix('/api/')->middleware('access.token')->group(function(){
     Route::get('test','Api\IndexController@test');
     Route::get('userInfo','Api\IndexController@userInfo');
 });
+
+Route::get('/github','GithubController@index');//github登陆
+
