@@ -23,22 +23,23 @@ class GithubController extends Controller
         $code = $_GET['code'];
 
         // 2.使用 code 去github接口 获取access_token
-        $uri = "https://github.com/login/oauth/access_token";
+        $uri = 'https://github.com/login/oauth/access_token';
 
         $response = $client->request("POST",$uri,[
 
-            // 携带 HTTP headers
             'headers'   => [
                 'Accept'    => 'application/json'
             ],
 
             'form_params'   => [
-                'client_id'         =>  env('GITHUB_CLIENT_ID'),
-                'client_secret'     =>  env('GITHUB_CLIENT_SECRET'),
+                'client_id'         =>  '0509ce9400307d30fb22',
+                'client_secret'     =>  'a35618783d72b93c5dd5a6f35dee95de1575d7d0',
                 'code'              =>  $code
             ]
         ]);
-        $body = $response->getBody();die;
+        //access_token 在响应的数据中
+        $body = $response->getBody();
+        echo $body;die;
     }
     
 }
