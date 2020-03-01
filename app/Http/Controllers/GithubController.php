@@ -26,17 +26,19 @@ class GithubController extends Controller
         $uri = "https://github.com/login/oauth/access_token";
 
         $response = $client->request("POST",$uri,[
-            'headers'       => [
+
+            // 携带 HTTP headers
+            'headers'   => [
                 'Accept'    => 'application/json'
             ],
+
             'form_params'   => [
-                'client_id'         => env('GITHUB_CLIENT_ID'),
-                'client_secret'     => env('GITHUB_CLIENT_SECRET'),
-                'code'              => $code
+                'client_id'         =>  env('GITHUB_CLIENT_ID'),
+                'client_secret'     =>  env('GITHUB_CLIENT_SECRET'),
+                'code'              =>  $code
             ]
         ]);
-        $body = $response->getBody();
-        echo $body;die;
+        $body = $response->getBody();die;
     }
     
 }
