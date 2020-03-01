@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="links">
-                    <h2><a href="https://github.com/login/oauth/authorize?client_id0509ce9400307d30fb22=&redirect_uri=http://zyj.fanhanxiao.cn/github/callback">github登陆</a></h2>
+                    <h2><a href="https://github.com/login/oauth/authorize?client_id=0509ce9400307d30fb22&redirect_uri=http://zyj.fanhanxiao.cn/github/callback">github登陆</a></h2>
                 </div>
             </div>
         </div>
