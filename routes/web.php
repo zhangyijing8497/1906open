@@ -42,3 +42,4 @@ Route::prefix('/api/')->middleware('access.token')->group(function(){
 
 Route::get('/github','GithubController@index');//github登陆
 
+

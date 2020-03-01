@@ -10,4 +10,5 @@ class GithubController extends Controller
     {
         return view('github.index');
     }
+    
 }
