@@ -32,8 +32,8 @@ class GithubController extends Controller
             ],
 
             'form_params'   => [
-                'client_id'         =>  '0509ce9400307d30fb22',
-                'client_secret'     =>  'a35618783d72b93c5dd5a6f35dee95de1575d7d0',
+                'client_id'         =>  env('GITHUB_CLIENT_ID'),
+                'client_secret'     =>  env('GITHUB_CLIENT_SECRET'),
                 'code'              =>  $code
             ]
         ]);
