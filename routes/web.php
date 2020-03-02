@@ -41,6 +41,6 @@ Route::prefix('/api/')->middleware('access.token')->group(function(){
 });
 
 Route::get('/github','GithubController@index');//github登陆
-Route::get('/github/callback2','GithubController@callback2');//用户授权回调
+Route::get('/github/callback','GithubController@callback');//用户授权回调
 
 

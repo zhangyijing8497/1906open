@@ -19,7 +19,7 @@ class GithubController extends Controller
     }
 
 
-    public function callback2()
+    public function callback()
     {
 
         $client = new Client();

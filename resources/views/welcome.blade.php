@@ -90,7 +90,7 @@
                 </div>
                 <hr>
                 <div class="links">
-                <a href="https://github.com/login/oauth/authorize?client_id=67d935253b593f90c215&redirect_uri=http://open.1906.com/github/callback2">github</a>
+                    <a href="https://github.com/login/oauth/authorize?client_id=0509ce9400307d30fb22&redirect_uri=http://zyj.fanhanxiao.cn/github/callback">github</a>
                 </div>
             </div>
         </div>
