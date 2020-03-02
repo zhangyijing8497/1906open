@@ -148,12 +148,16 @@ class LoginController extends Controller
         echo '<pre>';print_r($login_info);echo '</pre>';
 
         // 获取用户应用信息
-        $app_info = AppModel::where(['uid'=>$login_info['uid']])->first()->toArray();
-        // echo '<pre>';print_r($app_info);echo '</pre>';
+        echo "欢迎来到个人中心:".$login_info['uid'];echo '</br>';
+        $app_info = AppModel::where(['uid'=>$login_info['uid']])->first();
 
-        echo "欢迎来到个人中心:".$login_info['username'];echo '</br>';
-        echo "APPId:".$app_info['appid'];echo '</br>';
-        echo "SECRET:".$app_info['secret'];echo '</br>';
+        if($app_info){
+            echo "APPId:".$app_info->appid;echo '</br>';
+            echo "SECRET:".$app_info->secret;echo '</br>';    
+        }else{
+            echo "暂无应用信息";
+        }
+
     }
 
     /**
